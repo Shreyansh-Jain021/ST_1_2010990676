@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" href="../CSS/register_css.css">
+    <script src="../JS/register_js.js"></script>
+</head>
+<body>
+	<form class = "box" action = "../HTML/register.html" method = "POST">
+		<fieldset>
+			<legend style="text-align: center" class = "res">Registration Form</legend>
+			<table>
+				<tr>
+					<td><label for="name" class = "res"><b>Name :</b></label></td>
+					<td><input type="text" name="name" id="name" onmouseleave="check('name')" required></td>
+				</tr>
+                <tr></tr>
+				<tr>
+					<td><label for="mobileno" class = "res"><b>Mobile :</b></label></td>
+					<td><input type="number" name="mobileno" id="mobileno" onmouseleave="check('mobileno')" required></td>
+				</tr>
+                <tr></tr>
+				<tr>
+					<td><label for="email" class = "res"><b>Email :</b></label></td>
+					<td><input type="email" name="email" id="email" onmouseleave="check('email')" required></td>
+				</tr>
+                <tr></tr>
+				<tr>
+					<td><label for="password" class = "res"><b>Password :</b></label></td>
+					<td><input type="password" name="password" id="password" onmousedown="printReq()" onmouseleave="check('password')" required></td>
+                    <td><p id="password-info" class="red"></p></td>
+				</tr>
+                <tr></tr>
+				<tr>
+					<td><label for="c-password" class = "res"><b>Confirm Password :</b></label></td>
+					<td><input type="password" name="c-password" id="c-password" onmouseleave="check('c-password')" required></td>
+                    <td><p id="c-password-info" class="red"></p></td>
+				</tr>
+			</table>
+		<button onclick="onSubmit()" id="submit">Sign Up</button>
+	</fieldset>
+	</form>
+</body>
+</html>

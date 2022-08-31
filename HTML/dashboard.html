@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <script src="../JS/dashboard.js"></script>
+
+</head>
+
+<body>
+    <div class="left-container">
+        <div class="heading">
+            <h2 style="align-content: center;">Welcome Bhaskar<span id="userName"></span></h2>
+        </div>
+
+        <!--Left Side Container Menu-->
+
+        <ul class="menu">
+            <li><a onclick="onAddClick();">Open New Account</a></li>
+            <li><a onclick="onUpdateClick();">Update Account</a></li>
+            <li><a onclick="onDeleteClick();">Delete Account</a></li>
+            <li><a onclick="onRecoverClick();">Recover Account Statement</a></li>
+            <li><a onclick="onKycClick();">Update KYC</a></li>
+            <li><a onclick="onCashClick();">Cash Services</a></li>
+            <li><a onclick="onCardClick();">Card Services</a></li>
+            <li><a onclick="onResetPasswordClick();">Reset Password</a></li>
+            <li><a onclick="onLogOutClick()">LogOut</a></li>
+
+        </ul>
+    </div>
+
+    <!--Open New Account-->
+
+    <div class="right-container">
+        <div class="title">
+            Mohali Citi Bank
+        </div><br>
+        <br>
+        <br>
+        <div id="content">
+            <div id="addBox" hidden="true">
+                <form name="form4">
+                    <p style="text-align: center;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>Name:</label>
+                                    &emsp;&emsp;&emsp;&emsp;&ensp;<select required>
+                                        <option value="Mr."> Mr. </option>
+                                        <option value="Mrs."> Mrs. </option>
+                                        <option value="Ms."> Ms. </option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" id="name" placeholder="First Name" required />
+                                </td>
+                                <td>
+                                    <input type="text" id="name" placeholder="Last Name" required />
+                                </td>
+                            </tr>
+                        </table><br>
+                        <label for="dob">Date Of Birth:&emsp;&emsp;</label>
+                        &emsp;<input type="date" id="dob" placeholder="Date" required /><br><br>
+                        <label for="phone">Mobile Number:&emsp;&emsp;</label>
+                        <input type="tel" id="phone" name="phone" placeholder="1234-567-890" maxlength ="10" required><br><br>
+                        <label for="acctype">Account Type:&emsp;&emsp;</label>
+                        <select required>
+                            <option value="Personal Account"> Personal Account </option>
+                            <option value="Savings Account"> Saving Account </option>
+                            <option value="Fixed Deposit"> Fixed Deposit </option>
+                            <option value="Others"> Others </option>
+                        </select>
+                        <br>
+                        <label for="aadhar">Aadhar Number:&emsp;&emsp;</label>
+                        <input type="tel" id="aadhar" name="aadhar" placeholder="Aadhar Number" minlength="12" maxlength="12" required><br><br>
+                        <label for="gender">Gender:</label>
+                        <input type = "radio" name="gender" id="gender" value="male"> Male <br>
+			            &emsp;&emsp;&emsp;&nbsp;&nbsp;<input type = "radio" name="gender" id="gender" value="female"> Female <br>
+			            &emsp;&emsp;&emsp;&nbsp;&nbsp;<input type = "radio" name="gender" id="gender" value="others"> Others <br>
+                        <label for="mstatus">Marital Status:</label><br>
+                        &emsp;&emsp;&emsp;&nbsp;&nbsp;<input type = "radio" name="mstatus" id="mstatus" value="single"> Single <br>
+                        &emsp;&emsp;&emsp;&nbsp;&nbsp;<input type = "radio" name="mstatus" id="mstatus" value="married"> Married <br>
+                        &emsp;&emsp;&emsp;&nbsp;&nbsp;<input type = "radio" name="mstatus" id="mstatus" value="Divorced"> Divorced <br>
+                        &emsp;&emsp;&emsp;&nbsp;&nbsp;<input type = "radio" name="mstatus" id="mstatus" value="widow"> Widow   <br>
+                        <br>
+                        <label for="address">Address:</label>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;<textarea id="address" name="address" placeholder="Enter Your Address" rows="5" cols="50"></textarea><br><br><br>
+                        <label for="myfile">Select A Passport Size Photo:</label>
+                        <input type="file" id="myfile" name="filename" required><br><br>
+                        <label for="myfile">Select Address Proof</label>
+                        <input type="file" id="myfile" name="filename" required><br><br>
+                        <button  type ="submit"onClick="onAdd()">Add</button>
+                    </p>
+                </form>
+            </div>
+
+            <!--Update Account-->
+
+            <div id="updateBox" hidden="true">
+                <form name="form4">
+                    <p style="text-align: left;">
+                        <label for="account-number">Account Number:</label>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;<input type="tel" id="accountnumber" size=20 placeholder="Account Number" required /><br><br>
+                        <label for="change-address">Change Address:</label>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<input type="text" id="changeaddress" size=20 placeholder="Address" required /><br><br><br><br>
+                        <label for="new-proof">New Address Proof:</label>
+                        <input type="file" id="new-proof" name="filename" required><br><br><br><br>
+                        <label for="change-tel">Change Mobile Number:</label>
+                        &emsp;&emsp;<input type="tel" id="changetel" size=20 placeholder="Mobile Number" required /><br><br>
+                        <label for="Add">Add A New User:</label>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<select id="my-select"  onchange="newUser(this.value)">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <br><br><br>
+                        </select>
+                        <div id="newUser" hidden="true">
+                            <form>
+                                <p style="text-align: justify;">
+                                    <label for="user">Person's Name:</label>
+                                    &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="text" id="user" size=20 placeholder="Person's Name" /><br><br>
+                                    <label for="aadhar-number">Aadhar Number:</label>
+                                    &emsp;&emsp;&emsp;&emsp;&emsp;<input type="tel" id="aadhar-number" size=20 placeholder="Aadhar Number"  /><br><br>
+                                    <label for="dob">Date Of Birth:</label>
+                                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="date" id="dob" size=20 placeholder="Date Of Birth"  /><br><br>
+                                    <br><br>    <label for="form2">Upload Form-2 A:</label>
+                                    <input type="file" id="form2" name="filename" ><br><br><br><br>
+                                </p>
+                            </form>
+                        </div>
+                        <label for="form1">Upload Form-1:</label>
+                        <input type="file" id="form1" name="filename" ><br><br><br><br>
+                        <button type="submit" onClick="onUpdate()">Update</button>
+                    </p>
+                </form>
+            </div>
+
+            <!--Delete Account-->
+
+            <div id="deleteBox" hidden="true">
+                <form name="form4">
+                    <p style="text-align: left;">
+                        <label for="delaccount"> Account Number: </label>
+                        <input type="tel" id="delaccount" size=20 placeholder="Account Number" required /><br><br><br>
+                        <label for="Reason"> Reason: </label>
+                        &emsp;&emsp;&emsp;&emsp;<textarea id="Reason" size=50 placeholder="Reason" required rows="5" cols="50"></textarea><br><br><br>
+                        <label for="self">Upload Self Signed Form: </label>
+                        <input type="file" id="self" name="filename" required><br><br><br><br>
+                        <button type="submit" onClick="onDelete();">Delete</button>
+                    </p>
+                </form>
+            </div>
+
+            <!--Recover Account Statement-->
+
+            <div id="recoverBox" hidden="true">
+                <form name="form4">
+                    <p style="text-align: left;">
+                        <label for="recovery"> Account Number: </label>
+                        <input type="tel" id="recovery" size=20 placeholder="Account Number" required /><br><br><br>
+                        <button id="recover" type="submit" onClick="onRecover();">Download Account Summary</button>
+                    </p>
+                </form>
+            </div>
+
+            <!--Update Kyc-->
+
+            <div id="updatekyc" hidden="true">
+                <form name="form4">
+                    <p style="text-align: left;">
+                        <label for="accnum"> Account Number: </label>
+                        <input type="tel" id="accnum" size=20 placeholder="Account Number" required /><br><br><br>
+                        <label for="PerNa"> Person Name: </label>
+                        &emsp;&emsp;&emsp;&emsp;<input type="text" id="PerNa" size=20 value="Ramesh Sharma" disabled/><br><br><br>
+                        <label for="addss"> Address: </label>
+                        <textarea id="addss" width="160px !important" height="100px !important"size="100" placeholder="House Number 111/1 Mohali City Enclave  Sector 13 A  Chandigarh" rows="7" cols="20" disabled></textarea><br><br><br><br>
+                        <button type="button" onClick="onUpdateKYCC();">Update</button>
+                        <div id="kych" hidden="true">
+                            <form>
+                                <p style="text-align: justify;">
+                                    <img src="Untitled.jpg" />
+                                </p>
+                            </form>
+                        </div>
+                    </p>
+                </form>
+            </div>
+
+            <!--Cash Services-->
+
+            <div id="cashservices" hidden="true">
+                <form name="form4">
+                    <p style="text-align: left;">
+                        <label for="accno">Account Number:</label>
+                        &emsp;&emsp;&emsp;&nbsp;<input type = "tel" id="accno" onmouseout="onEnterCash();" ><br><br>
+                        <!-- <button type="submit" onClick="onEnterCash();" id="enterCash" hidden="false">Enter</button> -->
+                        <div id="cash" hidden="true">
+                            <form>
+                                <p style="text-align: justify;">
+                                    <label for="Person">Person Name:</label>
+                                    &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type = "text" id="Person" value="Ramesh" disabled></input><br><br>
+                                    <label  for="prev">Previous Balance:</label>
+                                    &emsp;&emsp;&emsp;&nbsp;<input type = "" id="prev" value="₹46,894.00" disabled></input><br><br>
+                                    <b>Amount to be:</b>
+                                    &emsp;&emsp;&emsp;&nbsp;<input type="radio" id="dep" name="cash" value="dep">
+                                    <label for="dep">Deposited</label>
+                                    <input type="radio" id="with" name="cash" value="with">
+                                    <label for="with">Withdrawn</label><br><br><br>
+                                    <input type="tel" id="with" placeholder="Enter Amount"><br><br>
+                                    <button type="submit" onClick="onWithCash();">Enter</button>
+                                </p>
+                            </form>
+                        </div>
+                    </p>
+                </form>
+            </div>
+
+            <!--Card Services-->
+
+            <div id="cardservices" hidden="true">
+                <form name="form4">
+                    <p style="text-align: left;">
+                        <label for="card"> Account Number: </label>
+                        &emsp;&emsp;&emsp;<input type="text" id="card" size=20 placeholder="Account Number" required /><br><br><br>
+                        <label for="PN"> Person Name: </label>
+                        &emsp;&emsp;&emsp;&emsp;<input type="text" id="PN" size=20 placeholder="Ramesh Sharma" disabled></textarea><br><br><br>
+                        <label for="cardtype"> Select The Card Type: </label>
+                        <input type="radio" name="test" id="cardtype cardtype1"/>
+                        <label for="cardtype1">
+                            <img src="../Images/visaClassic.png"/>
+                        </label><br><br><br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="radio" name="test"id="cardtype cardtype2"/>
+                        <label for="cardtype1">
+                            <img src="../Images/visaGold.png"/>
+                        </label><br><br><br>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="radio" name="test" id="cardtype cardtype3"/>
+                        <label for="cardtype1">
+                            <img src="../Images/Rupay.png"/>
+                        </label><br><br><br>
+                        <br><br><br><br>
+                        <button type="submit" onClick="onProceed();">Proceed</button>
+                    </p>
+                </form>
+            </div>
+
+            <!--Reset Password-->
+
+            <div id="resetpassword" hidden="true">
+                <form name="form4">
+                    <p style="text-align: left;">
+                        <label for="resetaccount"> Account Number: </label>
+                        <input type="text" id="resetaccount" size=20 placeholder="Account Number" required /><br><br><br>
+                        <label for="Reason"> Reason: </label>
+                        &emsp;&emsp;&emsp;&emsp;<textarea id="Reason" size=50 placeholder="Reason" required rows="5" cols="50"></textarea><br><br><br>
+                        <label for="self">Upload Self Signed Form: </label>
+                        <input type="file" id="self" name="filename" required><br><br><br><br>
+                        <label for="Add">Add A New Username And Password:</label>
+                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<select id="my_select" required onchange="onReset(this.value)">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                            <br><br><br>
+                        </select>
+                        <div id="reset" hidden="true">
+                            <form>
+                                <p style="text-align: justify;">
+                                    <label for="user">Username</label>
+                                    &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;<input type="text" id="user" size=20 placeholder="Khsdfjac2002" disabled /><br><br>
+                                    <label for="Password">Password</label>
+                                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="text" id="Password" size=20 placeholder="Ramesh_123#@21" disabled /><br><br>
+                                </p>
+                            </form>
+                        </div>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
